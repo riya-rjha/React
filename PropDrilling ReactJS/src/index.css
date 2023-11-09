@@ -45,6 +45,7 @@ header {
   font-weight: bolder;
   cursor: pointer;
   transition: all .7s;
+  width: 100%;
 }
 
 header:hover {
@@ -111,9 +112,7 @@ div .list {
 input[type="checkbox"] {
   cursor: pointer;
   width: 20px;
-  /* Adjust the width as needed */
   height: 20px;
-  /* Adjust the height as needed */
 }
 
 label {

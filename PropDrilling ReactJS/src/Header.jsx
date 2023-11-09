@@ -5,7 +5,8 @@ const Header = ({title}) => {
         backgroundColor: 'aqua',
         color: 'black',
         fontSize : '25px',
-        fontWeight: 'bolder'
+        fontWeight: 'bolder',
+        padding: "5px 70px"
     };
     const margins = {
         marginTop: '20px'

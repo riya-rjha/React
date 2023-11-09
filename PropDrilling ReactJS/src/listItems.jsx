@@ -1,27 +1,16 @@
 import React from 'react'
-import { FaTrashAlt } from "react-icons/fa";
+import LineItems from './lineItems.jsx'
 
 const listItems = ({ items, clickEvent, deleteEvent }) => {
     return (
         <ul className='list'>
             {items.map((items) => (
-                <li className='item' key={items.id}>
-                    <input
-                        type="checkbox"
-                        //will check the boxes if checked value is true
-                        checked={items.checked}
-                        onChange={() => clickEvent(items.id)}
-                    />
-                    <label
-                        style={(items.checked) ? { textDecorationLine: 'line-through' } : null}
-                        onDoubleClick={() => clickEvent(items.id)}
-                    >{items.item}</label>
-                    <FaTrashAlt
-                        role='button'
-                        tabIndex='0'
-                        onClick={() => deleteEvent(items.id)}
-                    />
-                </li>
+                <LineItems
+                    key={items.id} //List elements required key in React
+                    items={items}
+                    clickEvent={clickEvent}
+                    deleteEvent={deleteEvent}
+                />
             ))}
         </ul>
 
