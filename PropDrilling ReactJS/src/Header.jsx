@@ -1,17 +1,22 @@
 import React from 'react'
 
-const Header = (props) => {
+const Header = ({title}) => {
     const cssStyles = {
         backgroundColor: 'aqua',
         color: 'black',
         fontSize : '25px',
         fontWeight: 'bolder'
     };
+    const margins = {
+        marginTop: '20px'
+    };
     return (
         <div>
             <header>
-                {/* Groceries List */}
-                {props.title}
+                Domino's List
+            </header>
+            <header style={margins}>
+                {title}
             </header>
             <p style={cssStyles}>Creating my First Project in React</p>
         </div>
