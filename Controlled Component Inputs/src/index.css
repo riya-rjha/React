@@ -1,0 +1,139 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: rgb(0, 67, 45);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+header {
+  background-color: black;
+  color: whitesmoke;
+  font-size: 30px;
+  font-weight: bolder;
+  cursor: pointer;
+  transition: all .7s;
+  width: 100%;
+}
+
+header:hover {
+  background-color: white;
+  color: black;
+}
+
+main {
+  color: red;
+}
+
+footer p,
+#line {
+  font-family: cursive;
+  font-size: 25px;
+}
+
+button {
+  margin: 5px;
+}
+
+.btn {
+  outline: none;
+  border: 0;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  padding: 7px;
+  border-radius: 10px;
+  transition: all .5s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+  font-weight: bolder;
+}
+
+li,
+label {
+  font-size: 23px;
+}
+
+div .list {
+  list-style: none;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: aqua;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+label {
+  font-size: 23px;
+}
+
+.list input[type="checkbox"]:focus+label {
+  text-decoration: underline;
+}
+
+.list svg {
+  width: 38px;
+  min-width: 48px;
+  height: 30px;
+  font-size: 1rem;
+  color: greenyellow;
+  cursor: pointer;
+}
+
+.list svg:focus,
+.list svg:hover {
+  color: red;
+  outline: none;
+}

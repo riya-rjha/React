@@ -5,10 +5,8 @@ import './App.css'
 import Header from './Header.jsx'
 import Content from './Content.jsx'
 import Footer from './Footer.jsx'
-import Lists from './lists.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
   const [items, setItems] = useState([
     {
       id: 1,
@@ -70,35 +68,6 @@ function App() {
     console.log('You clicked twice here');
   }
 
-  // const [items, setItems] = useState([
-  //   {
-  //     id: 1,
-  //     checked: true,
-  //     item: 'Chocolava Cake'
-  //   },
-  //   {
-  //     id: 2,
-  //     checked: false,
-  //     item: 'Butterscotch Mouse Cake'
-  //   },
-  //   {
-  //     id: 3,
-  //     checked: false,
-  //     item: 'Margerita Pizza'
-  //   }
-  // ]);
-
-  // const clickEvent = (id) => {
-  //   const updatedItems = items.map((item) =>
-  //     item.id === id ? { ...item, checked: !item.checked } : item
-  //   );
-  //   setItems(updatedItems);
-  // };
-
-  // const deleteEvent = (id) => {
-  //   const updatedItems = items.filter((item) => item.id !== id);
-  //   setItems(updatedItems);
-  // };
 
 
   return (
@@ -107,8 +76,12 @@ function App() {
       <div>
         <Header title="Domino's List" />
         <Footer length={items.length} />
-        <Lists items={items} clickEvent={clickEvent} deleteEvent={deleteEvent} />
-        {/* <Content  /> */}
+        {/* <Lists items={items} clickEvent={clickEvent} deleteEvent={deleteEvent} /> */}
+        <Content  
+          items={items}
+          clickEvent={clickEvent}
+          deleteEvent={deleteEvent}
+        />
       </div>
 
       <div>
@@ -125,7 +98,6 @@ function App() {
         <p id='line'>Double tap on this button!</p>
         <button className="btn" onDoubleClick={handleClick4}>Double Tap</button>
       </div>
-
     </>
   )
 }

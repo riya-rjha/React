@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
+import {FaTrashAlt} from 'react-icons/fa'
 
 
-const Content = () => {
+const Content = ({items, clickEvent, deleteEvent}) => {
     // Creating useState hook
     const [name, setName] = useState('Riya');
     const [count, setCount] = useState(0);
