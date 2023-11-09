@@ -4,6 +4,7 @@ import Header from './Header.jsx'
 import Content from './Content.jsx'
 import Footer from './Footer.jsx'
 import AddItem from './addItem.jsx'
+import SearchListItems from './searchListItems.jsx'
 
 function App() {
 
@@ -54,9 +55,9 @@ function App() {
 
   // Adding New Items to list
   const [newItem, setNewItem] = useState('');
-  const addItem = (item) =>{
-    const id = items.length?items[items.length-1].id+1:1; //to calc id of newElement being placed
-    const myNewItem = {id, checked:false, item};  //to define attributes for newElement
+  const addItem = (item) => {
+    const id = items.length ? items[items.length - 1].id + 1 : 1; //to calc id of newElement being placed
+    const myNewItem = { id, checked: false, item };  //to define attributes for newElement
     const listItems = [...items, myNewItem]; //to save myNewItem in items using spread operator
     setAndSaveItems(listItems); //save to Local Storage
 
@@ -70,6 +71,9 @@ function App() {
     addItem(newItem);
     setNewItem('');
   }
+
+  // Searching Items
+  const [search, setSearch] = useState('');
   return (
     <>
 
@@ -77,9 +81,14 @@ function App() {
 
         <Header title="Props Title" />
         <Content
-          items={items}
+          items={items.filter(item=>(
+            (item.item).toLowerCase()).includes(search.toLowerCase()))}
           clickEvent={clickEvent}
           deleteEvent={deleteEvent}
+        />
+        <SearchListItems 
+          search={search}
+          setSearch={setSearch}
         />
         <AddItem
           newItem={newItem}

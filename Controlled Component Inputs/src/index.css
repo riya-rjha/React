@@ -167,6 +167,11 @@ form input[type='text'] {
   padding: 9px;
   color: white;
   width: 300px;
+  flex: 1;
+}
+
+#firstForm input{
+  margin-right: -37px;
 }
 
 form ::placeholder {
@@ -185,7 +190,12 @@ form button {
   color: white;
 }
 
-form button:hover{
+form button:hover, form button:focus{
   background-color: greenyellow;
   color: red;
+}
+
+.searchBar{
+  justify-content: space-evenly;
+  margin-bottom: 20px;
 }
