@@ -137,3 +137,55 @@ label {
   color: red;
   outline: none;
 }
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #fff;
+}
+
+form label {
+  width: 111px;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+form input {
+  border: 0;
+  outline: none;
+  padding: 5px;
+  border-radius: 8px;
+  background: #30005dbd;
+  color: white;
+}
+
+form input[type='text'] {
+  font-size: 16px;
+  font-weight: bolder;
+  padding: 9px;
+  color: white;
+  width: 300px;
+}
+
+form ::placeholder {
+  color: white;
+  opacity: .6;
+}
+
+form button {
+  border: 0;
+  outline: none;
+  padding: 7px;
+  border-radius: 50%;
+  height: 28px;
+  cursor: pointer;
+  background-color: #30005dbd;
+  color: white;
+}
+
+form button:hover{
+  background-color: greenyellow;
+  color: red;
+}

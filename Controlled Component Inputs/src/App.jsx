@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './Header.jsx'
 import Content from './Content.jsx'
 import Footer from './Footer.jsx'
+import AddItem from './addItem.jsx'
 
 function App() {
 
@@ -26,23 +25,14 @@ function App() {
 
   // Cut Copy Paste from Content.jsx : 
 
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      checked: true,
-      item: 'Chocolava Cake'
-    },
-    {
-      id: 2,
-      checked: false,
-      item: 'Butterscotch Mouse Cake'
-    },
-    {
-      id: 3,
-      checked: false,
-      item: 'Margerita Pizza'
-    }
-  ]);
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('lists')));
+
+  const setAndSaveItems = (listItems) => {
+    // Update the state with the modified array
+    setItems(listItems);
+    //saving the values to local Storage
+    localStorage.setItem('lists', JSON.stringify(listItems));
+  }
 
   // Importing functions
   const clickEvent = (id) => {
@@ -52,33 +42,51 @@ function App() {
         //...item - shallow copy of object creating it into new object
         { ...item, checked: !item.checked }
         : item);
-    // Update the state with the modified array
-    setItems(listItems);
-    //saving the values to local Storage
-    localStorage.setItem('lists', JSON.stringify(listItems));
+    setAndSaveItems(listItems);
   }
 
   const deleteEvent = (id) => {
     const listItems = items.filter((item) =>
       item.id !== id //removes item of specified id by creating a new array
     );
-    // Update the state with the modified array(items)
-    setItems(listItems);
-    //saving the values to local Storage
-    localStorage.setItem('lists', JSON.stringify(listItems));
+    setAndSaveItems(listItems);
   }
 
+  // Adding New Items to list
+  const [newItem, setNewItem] = useState('');
+  const addItem = (item) =>{
+    const id = items.length?items[items.length-1].id+1:1; //to calc id of newElement being placed
+    const myNewItem = {id, checked:false, item};  //to define attributes for newElement
+    const listItems = [...items, myNewItem]; //to save myNewItem in items using spread operator
+    setAndSaveItems(listItems); //save to Local Storage
+
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!newItem) {
+      return;
+    }
+    addItem(newItem);
+    setNewItem('');
+  }
   return (
     <>
 
       <div>
+
         <Header title="Props Title" />
-        <Content  
+        <Content
           items={items}
           clickEvent={clickEvent}
           deleteEvent={deleteEvent}
         />
-        <Footer length={items.length}/>
+        <AddItem
+          newItem={newItem}
+          setNewItem={setNewItem}
+          handleSubmit={handleSubmit}
+        />
+        <Footer length={items.length} />
       </div>
 
       <div>
