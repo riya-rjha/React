@@ -1,12 +1,13 @@
 import React from 'react'
 import ColorNames from 'colornames'
 
-const gameChange = ({ color, setColor, hexColor, setHexColor }) => {
+const gameChange = ({ color, setColor, hexColor, setHexColor, darkText, setDarkText }) => {
     return (
         <div className='container'>
             <div id="box" style={
                 {
-                    backgroundColor: color ? color : "white"
+                    backgroundColor: color ? color : "white",
+                    color: darkText ? '#000' : '#FFF'
                 }
             }
             >
@@ -29,6 +30,12 @@ const gameChange = ({ color, setColor, hexColor, setHexColor }) => {
                     setHexColor(ColorNames(e.target.value));
                 }}
             />
+            <button
+                onClick={()=>setDarkText(!darkText)}
+                id='toggle-btn'
+                type='button'
+            > Toggle Text Color
+            </button>
         </div>
     )
 }

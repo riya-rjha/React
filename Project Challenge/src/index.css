@@ -89,16 +89,18 @@ button:focus-visible {
 }
 
 #search-bar {
-  width: 95%;
-  margin: 20px 5px;
+  width: 77%;
   border: 0;
   outline: none;
-  padding: 6px;
+  padding: 7px;
   border-radius: 5px;
   background-color: rgba(128, 128, 128, 0.374);
   color: black;
   font-size: 16px;
   font-family: 'Roboto Slab', serif;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-left: 8px;
 }
 
 ::placeholder {
@@ -106,6 +108,23 @@ button:focus-visible {
   font-family: 'Roboto Slab', serif;
 }
 
-p{
+p {
   text-align: center;
+}
+
+#toggle-btn {
+  width: 80%;
+  border: 0;
+  outline: none;
+  padding: 7px;
+  border-radius: 5px;
+  background-color: rgba(128, 128, 128, 0.374);
+  color: black;
+  font-size: 16px;
+  font-family: 'Roboto Slab', serif;
+  margin-left: 10px;
+}
+
+#toggle-btn:hover{
+  background-color: rgba(128, 128, 128, 0.574);
 }

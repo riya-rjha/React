@@ -6,6 +6,7 @@ const App = () => {
 
   const [color, setColor] = useState('');
   const [hexColor, setHexColor] = useState('');
+  const [darkText, setDarkText] = useState(true);
 
   return (
     <main>
@@ -14,6 +15,8 @@ const App = () => {
         setColor={setColor}
         hexColor={hexColor}
         setHexColor={setHexColor}
+        darkText={darkText}
+        setDarkText={setDarkText}
       />
     </main>
   )
