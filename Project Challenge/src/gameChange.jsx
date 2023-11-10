@@ -1,6 +1,7 @@
 import React from 'react'
+import ColorNames from 'colornames'
 
-const gameChange = ({ color, setColor }) => {
+const gameChange = ({ color, setColor, hexColor, setHexColor }) => {
     return (
         <div className='container'>
             <div id="box" style={
@@ -11,6 +12,8 @@ const gameChange = ({ color, setColor }) => {
             >
                 <p>
                     {color ? color : "Empty Value"}
+                    <br />
+                    {hexColor ? hexColor : ""}
                 </p>
             </div>
             <input
@@ -21,7 +24,10 @@ const gameChange = ({ color, setColor }) => {
                 placeholder='Enter color'
                 type="text"
                 value={color}
-                onChange={(e) => setColor(e.target.value)}
+                onChange={(e) => {
+                    setColor(e.target.value);
+                    setHexColor(ColorNames(e.target.value));
+                }}
             />
         </div>
     )
