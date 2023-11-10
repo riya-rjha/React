@@ -1,14 +1,17 @@
 import React from 'react'
 
 const gameChange = ({ color, setColor }) => {
-
     return (
         <div className='container'>
             <div id="box" style={
-                { backgroundColor: color ? color : "white" }
+                {
+                    backgroundColor: color ? color : "white"
+                }
             }
             >
-            <p>{color}</p>
+                <p>
+                    {color ? color : "Empty Value"}
+                </p>
             </div>
             <input
                 autoFocus
