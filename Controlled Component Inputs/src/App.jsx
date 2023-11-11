@@ -26,7 +26,7 @@ function App() {
 
   // Cut Copy Paste from Content.jsx : 
 
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem('lists')) || []);
+  const [items, setItems] = useState([]);
 
 
   // Importing functions
@@ -106,11 +106,7 @@ function App() {
       }
     }
 
-    setTimeout(() => {
-      console.log('Hemmlooo');
-      (async () =>
-        await fetchItems())();
-    }, 2000);
+    setTimeout(fetchItems, 2000);
 
   }, [])
 
