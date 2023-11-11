@@ -68,17 +68,52 @@ function App() {
 
   // Searching Items
   const [search, setSearch] = useState('');
-
-  //useEffect state runs at every render
+  const [fetchError, setFetchError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   // console.log('Before applying of useEffect');
 
-  useEffect(()=>{
+  //useEffect state runs at every render
+
+  useEffect(() => {
     //saving the values to local Storage
     localStorage.setItem('lists', JSON.stringify(items));
   }, [items]);
 
   // console.log('After applying of useEffect');
+
+
+  //Using Fetch API Data
+  const API_URL = " http://localhost:3500/items";
+  //async cannot be directly used in useEffect
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        console.log(data);
+        setItems(data);
+        if (!response.ok) throw Error('Unable to load data from API');
+        setFetchError(null);
+      }
+      catch (error) {
+        console.log(error.message);
+        setFetchError(error.message);
+      }
+      finally{
+        setIsLoading(false);
+      }
+    }
+
+    setTimeout(() => {
+      console.log('Hemmlooo');
+      (async () =>
+        await fetchItems())();
+    }, 2000);
+
+  }, [])
+
 
   return (
     <>
@@ -86,22 +121,39 @@ function App() {
       <div>
 
         <Header title="Props Title" />
+
         <Content
-          items={items.filter(item=>(
+          items={items.filter(item => (
             (item.item).toLowerCase()).includes(search.toLowerCase()))}
           clickEvent={clickEvent}
           deleteEvent={deleteEvent}
         />
-        <SearchListItems 
-          search={search}
-          setSearch={setSearch}
-        />
+        <main>
+          {isLoading && <p>Loading items...</p>}
+          {fetchError && <p
+            style={{
+              color: "red",
+              fontSize: "22px",
+              fontWeight: "bolder",
+              letterSpacing: "1px"
+            }}
+          >
+            {`Error : ${fetchError}`}
+          </p>
+          }
+          <SearchListItems
+            search={search}
+            setSearch={setSearch}
+          />
+        </main>
         <AddItem
           newItem={newItem}
           setNewItem={setNewItem}
           handleSubmit={handleSubmit}
         />
-        <Footer length={items.length} />
+        {!fetchError && !isLoading && <Footer
+          length={items.length}
+        />}
       </div>
 
       <div>

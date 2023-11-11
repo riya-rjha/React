@@ -29,7 +29,8 @@ const Content = ({items, clickEvent, deleteEvent}) => {
 
 
     return (
-        <main>
+        //Fragment Tags
+        <>
             <h1 className="read-docs">Hello {name}!</h1>
             <h1 className="read-docs">Count value is {count}</h1>
             <button onClick={handleNameChange} className='btn'>Change Name</button>
@@ -46,7 +47,7 @@ const Content = ({items, clickEvent, deleteEvent}) => {
                     <h2 style={{ marginTop: "15px"}}>Your list is now empty!</h2>
                 )}
             </div>
-        </main>
+        </>
     )
 }
 
