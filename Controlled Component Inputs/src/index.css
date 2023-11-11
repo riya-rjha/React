@@ -96,31 +96,30 @@ div .list {
 
 .list {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
   gap: 8px;
 }
 
 .list li {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 8px;
   color: aqua;
+  justify-content: space-between;
+  width: 100%;
 }
 
 input[type="checkbox"] {
   cursor: pointer;
-  width: 20px;
+  width: 30px;
   height: 20px;
 }
 
 label {
+  text-align: left;
   font-size: 23px;
-}
-
-.list input[type="checkbox"]:focus+label {
-  text-decoration: underline;
+  width: 100%;
 }
 
 .list svg {
@@ -170,7 +169,7 @@ form input[type='text'] {
   flex: 1;
 }
 
-#firstForm input{
+#firstForm input {
   margin-right: -37px;
 }
 
@@ -190,12 +189,13 @@ form button {
   color: white;
 }
 
-form button:hover, form button:focus{
+form button:hover,
+form button:focus {
   background-color: greenyellow;
   color: red;
 }
 
-.searchBar{
+.searchBar {
   justify-content: space-evenly;
   margin-bottom: 20px;
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Header from './Header.jsx'
 import Content from './Content.jsx'
@@ -26,7 +26,7 @@ function App() {
 
   // Cut Copy Paste from Content.jsx : 
 
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem('lists')));
+  const [items, setItems] = useState([]);
 
   const setAndSaveItems = (listItems) => {
     // Update the state with the modified array
@@ -74,6 +74,17 @@ function App() {
 
   // Searching Items
   const [search, setSearch] = useState('');
+
+  //useEffect state runs at every render
+
+  console.log('Before applying of useEffect');
+
+  useEffect(()=>{
+    setItems(JSON.parse(localStorage.getItem('lists')));
+  }, []);
+
+  console.log('After applying of useEffect');
+
   return (
     <>
 
