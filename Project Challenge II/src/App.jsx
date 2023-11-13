@@ -1,19 +1,16 @@
 import React from 'react'
 import Container from './container.jsx'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const App = () => {
 
-    const [item, setItem] = useState({});
+    const [item, setItem] = useState("users");
 
 
 
   return (
     <div>
-        <Container
-            item={item}
-            setItem={setItem}
-        />
+        
     </div>
   )
 }
