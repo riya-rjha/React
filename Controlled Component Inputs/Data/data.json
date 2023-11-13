@@ -12,7 +12,7 @@
     },
     {
       "id": 3,
-      "checked": false,
+      "checked": true,
       "item": "Potato Cheese Shots"
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "id": 5,
-      "checked": false,
+      "checked": true,
       "item": "Burger"
     }
   ]

@@ -31,7 +31,7 @@ function App() {
 
 
   // Importing functions
-  const clickEvent = (id) => {
+  const clickEvent = async (id) => {
     //items is setChange event
     const listItems = items.map((item) =>
       item.id === id ?
@@ -39,6 +39,23 @@ function App() {
         { ...item, checked: !item.checked }
         : item);
     setItems(listItems);
+
+    //Handle Check
+    //Without using local Storage
+    //By the use of API - CRUD Operations
+
+    const myItems = listItems.filter(item=>item.id===id);
+    const updateOptions = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({checked:myItems[0].checked})
+    };
+
+    const reqUrl = `${API_URL}/${id}`;
+    const result = await ApiRequest(reqUrl, updateOptions);
+    if(result) setFetchError(result);
   }
 
   const deleteEvent = (id) => {
