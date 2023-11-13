@@ -46,7 +46,7 @@ function App() {
 
     const myItems = listItems.filter(item=>item.id===id);
     const updateOptions = {
-      method: 'PATCH',
+      method: 'PATCH', //Patch request : Modify
       headers: {
         'Content-Type':'application/json'
       },
@@ -58,11 +58,20 @@ function App() {
     if(result) setFetchError(result);
   }
 
-  const deleteEvent = (id) => {
+  const deleteEvent = async (id) => {
     const listItems = items.filter((item) =>
       item.id !== id //removes item of specified id by creating a new array
     );
     setItems(listItems);
+
+    const deleteOptions = {
+      method: 'DELETE'
+    };
+
+    const reqUrl = `${API_URL}/${id}`;
+    const result = await ApiRequest(reqUrl, deleteOptions);
+    if(result) setFetchError(result);
+    
   }
 
   // Adding New Items to list

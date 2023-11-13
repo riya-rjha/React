@@ -2,28 +2,28 @@
   "items": [
     {
       "id": 1,
-      "checked": false,
+      "checked": true,
       "item": "Red Sauce Pasta"
     },
     {
-      "id": 2,
-      "checked": false,
-      "item": "Peri Peri Fries"
-    },
-    {
       "id": 3,
-      "checked": true,
+      "checked": false,
       "item": "Potato Cheese Shots"
     },
     {
-      "id": 4,
+      "id": 5,
       "checked": false,
-      "item": "Pizza"
+      "item": "Burger"
     },
     {
-      "id": 5,
+      "id": 6,
       "checked": true,
-      "item": "Burger"
+      "item": "Peri Peri Fries"
+    },
+    {
+      "id": 7,
+      "checked": true,
+      "item": "Margherita Pizza"
     }
   ]
 }
