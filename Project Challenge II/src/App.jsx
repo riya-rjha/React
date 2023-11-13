@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 const App = () => {
 
-    const [item, setItem] = useState([]);
+    const [item, setItem] = useState({});
 
 
 
