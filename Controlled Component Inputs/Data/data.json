@@ -1,19 +1,29 @@
 {
-    "items": [
-        {
-            "id": 1,
-            "checked": false,
-            "item": "Red Sauce Pasta"
-        },
-        {
-            "id": 2,
-            "checked": false,
-            "item": "Peri Peri Fries"
-        },
-        {
-            "id": 3,
-            "checked": false,
-            "item": "Potato Cheese Shots"
-        }
-    ]
+  "items": [
+    {
+      "id": 1,
+      "checked": false,
+      "item": "Red Sauce Pasta"
+    },
+    {
+      "id": 2,
+      "checked": false,
+      "item": "Peri Peri Fries"
+    },
+    {
+      "id": 3,
+      "checked": false,
+      "item": "Potato Cheese Shots"
+    },
+    {
+      "id": 4,
+      "checked": false,
+      "item": "Pizza"
+    },
+    {
+      "id": 5,
+      "checked": false,
+      "item": "Burger"
+    }
+  ]
 }

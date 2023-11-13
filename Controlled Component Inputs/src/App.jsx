@@ -5,6 +5,7 @@ import Content from './Content.jsx'
 import Footer from './Footer.jsx'
 import AddItem from './addItem.jsx'
 import SearchListItems from './searchListItems.jsx'
+import ApiRequest from './apiRequest.jsx'
 
 function App() {
 
@@ -49,11 +50,23 @@ function App() {
 
   // Adding New Items to list
   const [newItem, setNewItem] = useState('');
-  const addItem = (item) => {
+  const addItem = async (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1; //to calc id of newElement being placed
     const myNewItem = { id, checked: false, item };  //to define attributes for newElement
     const listItems = [...items, myNewItem]; //to save myNewItem in items using spread operator
     setItems(listItems); //save to Local Storage
+
+    //Adding items through CRUD Operations - Data from Data/db.json
+    const postOperations = { //object notation (POST Operations)
+      method: 'POST',
+      headers : {
+        'Content-Type' : 'application/json' //data being sent in JSON Format
+      },
+      body: JSON.stringify(myNewItem)
+    }
+
+    const results = await ApiRequest(API_URL, postOperations);
+    if(results) setFetchError(results); 
 
   }
 
@@ -84,7 +97,7 @@ function App() {
 
 
   //Using Fetch API Data
-  const API_URL = " http://localhost:3500/items";
+  const API_URL = "http://localhost:3500/items";
   //async cannot be directly used in useEffect
 
   useEffect(() => {
@@ -125,7 +138,15 @@ function App() {
           deleteEvent={deleteEvent}
         />
         <main>
-          {isLoading && <p>Loading items...</p>}
+          {isLoading && <p
+            style={{fontSize: "22px",
+              fontWeight: "bolder",
+              letterSpacing: "1px",
+              color: "greenyellow"
+          }}
+          >
+            Loading items...
+            </p>}
           {fetchError && <p
             style={{
               color: "red",
