@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Container from './container.jsx'
-import List from './List.jsx'
+// import List from './List.jsx'
+import Table from './Table.jsx'
 
 
 const App = () => {
@@ -31,8 +32,11 @@ const App = () => {
         request={request}
         setRequest={setRequest}
       />
-      <List
+      {/* <List
         items={items} //the name that is being passed should be same as that mentioned during destructuring (not parenthesis one, the other one)
+      /> */}
+      <Table
+        items={items}
       />
     </div>
   )
