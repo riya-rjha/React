@@ -1,8 +1,10 @@
 import React from 'react'
 
-const NewPost = () => {
+const NewPost = ({title, setTitle, body, setBody}) => {
   return (
-    <div>NewPost</div>
+    <main className='NewPost'>
+            <h1>New Post</h1>
+    </main>
   )
 }
 

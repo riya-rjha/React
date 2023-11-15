@@ -92,6 +92,16 @@ main {
   outline: none;
 }
 
+.icon {
+  font-size: 55px;
+  color: rgb(56, 93, 0);
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: red;
+}
+
 .searchForm label {
   position: absolute;
   left: -99999px;
@@ -191,3 +201,14 @@ main {
   }
 
 }
+
+footer {
+  position: absolute;
+  bottom: 5px;
+}
+
+article.post {
+  border-bottom: 1px solid black;
+  margin-top: 8px;
+}
+
