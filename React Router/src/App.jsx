@@ -35,7 +35,7 @@ const App = () => {
     },
     {
       id: 4,
-      title: "Life : An eternal joruney",
+      title: "Life : An eternal journey",
       datetime: "July 01, 2021 11:17:36 AM",
       body: "Life is a journey marked by a tapestry of experiences, challenges, and moments of joy. It's a continuous process of self-discovery, growth, and adaptation to the ever-changing circumstances. Each individual's path is unique, shaped by choices, relationships, and personal aspirations. Embracing the present, learning from the past, and anticipating the future contribute to the richness and depth of the human experience. The tapestry of life weaves together a myriad of experiences, emotions, and relationships, creating a unique and intricate pattern for each individual. Threads of joy, sorrow, love, and challenges intertwine, forming a rich mosaic that tells the story of our journey. Choices act as the vibrant hues, influencing the overall design."
     }
