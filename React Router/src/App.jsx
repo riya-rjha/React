@@ -53,6 +53,10 @@ const App = () => {
     navigate('/');//Navigate to home page -> history.push() - V5
   }
 
+  const handleSubmit = () =>{
+    console.log('Submitted successfully!');
+  }
+
 
   return (
     <div className="App">
@@ -66,7 +70,13 @@ const App = () => {
           post={post}
         />}>
         </Route>
-        <Route exact path="/post" element={<NewPost />}>
+        <Route exact path="/post" element={<NewPost
+          title={title}
+          setTitle={setTitle}
+          body={body}
+          setBody={setBody}
+          handleSubmit={handleSubmit}
+        />}>
         </Route>
         <Route exact
           path="/post/:id"

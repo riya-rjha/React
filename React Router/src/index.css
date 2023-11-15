@@ -212,3 +212,55 @@ article.post {
   margin-top: 8px;
 }
 
+form.newPostForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  height: 55%;
+}
+
+input,
+textarea {
+  border: 0;
+  outline: none;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+input[type='text'] {
+  font-family: cursive;
+  letter-spacing: 1px;
+}
+
+textarea {
+  font-family: cursive;
+  letter-spacing: 1px;
+}
+
+label {
+  color: rebeccapurple;
+  font-weight: bolder;
+  margin-top: 5px;
+  font-size: 22px;
+}
+
+::placeholder {
+  font-weight: bold;
+  color: rgba(128, 128, 128, 0.674);
+}
+
+button {
+  text-align: center;
+  border: 0;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 8px;
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 80px;
+  cursor: pointer;
+}
