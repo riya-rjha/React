@@ -10,7 +10,7 @@ import PostPage from "./PostPage";
 import About from "./About";
 import Missing from "./Missing";
 import Footer from "./Footer";
-
+import { format } from 'date-fns';
 
 const App = () => {
 
@@ -53,9 +53,25 @@ const App = () => {
     navigate('/');//Navigate to home page -> history.push() - V5
   }
 
-  const handleSubmit = () =>{
-    console.log('Submitted successfully!');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const id = post.length ? post[post.length - 1] + 1 : 1;
+    const dateTime = format(new Date(), "MMMM dd, yyyy pp") //format of date and time
+    const newPost = {id, title:title, dateTime, body:body};
+    const allPosts = [...post, newPost];
+    setPost(allPosts);
+    setTitle('');
+    setBody('');
+    navigate('/');
   }
+
+  useEffect(() => {
+    const filteredResults = post.filter(posts => (
+       ((posts.title.toLowerCase()).includes(search.toLowerCase()))
+    ))
+
+    setSearchResults(filteredResults.reverse()); //reverses the elements of array
+  }, [post, search]);
 
 
   return (
@@ -67,7 +83,7 @@ const App = () => {
       />
       <Routes>
         <Route path="/" element={<Home
-          post={post}
+          post={searchResults}
         />}>
         </Route>
         <Route exact path="/post" element={<NewPost

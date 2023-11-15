@@ -203,8 +203,11 @@ main {
 }
 
 footer {
-  position: absolute;
-  bottom: 5px;
+  position: sticky;
+  bottom: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+  letter-spacing: 0.6px;
 }
 
 article.post {
@@ -230,14 +233,20 @@ textarea {
   margin-top: 8px;
 }
 
+main {
+  overflow: auto;
+}
+
 input[type='text'] {
   font-family: cursive;
   letter-spacing: 1px;
+  width: 148%;
 }
 
 textarea {
   font-family: cursive;
   letter-spacing: 1px;
+  overflow: hidden;
 }
 
 label {
@@ -263,4 +272,13 @@ button {
   margin-top: 20px;
   width: 80px;
   cursor: pointer;
+  font-family: 'Roboto Slab';
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.819);
+}
+
+main.NewPost{
+  overflow: hidden;
 }

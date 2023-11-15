@@ -27,5 +27,6 @@ Connect VS Code to gitHub and on terminal run the following commands :
 Vite is a frontend tool that is fast unlike the old CRE. Use vite for activated and fast programming.
 
 ## Different commands to use on terminal 
-1. React-icons : 
+1. React-icons : npm i react-icons --save-prod (Saving as a production dependency)
 2. Router : npm i react-router-dom -S
+3. Date & Time : npm i date-fns -S
