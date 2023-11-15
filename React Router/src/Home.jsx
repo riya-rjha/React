@@ -1,8 +1,15 @@
 import React from 'react'
-
-const Home = () => {
+import Feed from './Feed.jsx'
+const Home = ({ post }) => {
   return (
-    <main>Home</main>
+    <main>
+      {post.length ?
+        <Feed post={post} /> :
+        <p
+          style={{ marginTop: '2rem' }}
+        >No posts to display!</p>
+      }
+    </main>
   )
 }
 
