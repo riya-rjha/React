@@ -25,3 +25,7 @@ Connect VS Code to gitHub and on terminal run the following commands :
 9. Ctrl+C (To stop local host)
 
 Vite is a frontend tool that is fast unlike the old CRE. Use vite for activated and fast programming.
+
+## Different commands to use on terminal 
+1. React-icons : 
+2. Router : npm i react-router-dom -S

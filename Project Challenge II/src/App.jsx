@@ -33,7 +33,7 @@ const App = () => {
         setRequest={setRequest}
       />
       {/* <List
-        items={items} //the name that is being passed should be same as that mentioned during destructuring (not parenthesis one, the other one)
+        items={items} //the name that is being passed should be same as that mentioned during destructuring (not parenthesis one, the other one)  
       /> */}
       <Table
         items={items}
@@ -44,7 +44,3 @@ const App = () => {
 
 export default App
 
-/**git branch -m main master
-git fetch origin
-git branch -u origin/master master
-git remote set-head origin -a */
