@@ -16,8 +16,6 @@ const NewPost = ({ title, setTitle, body, setBody, handleSubmit }) => {
         />
         <label htmlFor="postBody">Content : </label>
         <textarea
-        rows={10}
-        cols={25}
           id="postBody"
           required
           placeholder='Enter content'
