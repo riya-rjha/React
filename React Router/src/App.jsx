@@ -60,9 +60,9 @@ const App = () => {
     const updatedPost = { id, title: title, dateTime, body: body };
     try {
       const response = await API_Axios.put(`/posts/${id}`, updatedPost);
-      setPost(post.map(post => {
+      setPost(post.map(post => 
         (post.id === id) ? { ...response.data } : post
-      }));
+      ));
       setEditBody('');
       setEditTitle('');
       navigate('/');

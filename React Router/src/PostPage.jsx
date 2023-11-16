@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { AiFillAndroid, AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 
 const PostPage = ({ post, handleDelete }) => {
@@ -16,7 +16,9 @@ const PostPage = ({ post, handleDelete }) => {
             <h2>{posts.title}</h2>
             <p className='postDate'>{posts.datetime}</p>
             <p className="postBody">{posts.body}</p>
-            <Link to={`/edit/${post.id}`}><FaEdit className="icon" /> </Link>
+            <Link to={`/edit/${post.id}`}>
+              <FaEdit className="icon" />
+            </Link>
             <AiOutlineDelete
               className='icon'
               onClick={() => handleDelete(posts.id)}
