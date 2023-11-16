@@ -28,16 +28,22 @@ const App = () => {
     navigate('/');//Navigate to home page -> history.push() - V5
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const id = post.length ? post[post.length - 1] + 1 : 1;
     const dateTime = format(new Date(), "MMMM dd, yyyy pp") //format of date and time
     const newPost = { id, title: title, dateTime, body: body };
-    const allPosts = [...post, newPost];
-    setPost(allPosts);
-    setTitle('');
-    setBody('');
-    navigate('/');
+    try {
+      const response = await API_Axios.post('/posts', newPost);
+      const allPosts = [...post, response.data];
+      setPost(allPosts);
+      setTitle('');
+      setBody('');
+      navigate('/');
+    }
+    catch(error){
+      console.log(`Error : ${error.message}`);
+    }
   }
 
   useEffect(() => {
@@ -60,7 +66,7 @@ const App = () => {
           console.log(error.data_2.data);
           console.log(error.data_2.headers);
         }
-        else{
+        else {
           //It could not catch the error
           //Eg. 404 Error
           console.log(`Error : ${error.message}`);
