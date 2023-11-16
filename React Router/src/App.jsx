@@ -11,10 +11,11 @@ import About from "./About";
 import Missing from "./Missing";
 import Footer from "./Footer";
 import { format } from 'date-fns';
+import API_Axios from './API/post.jsx'
 
 const App = () => {
 
-  const [post, setPost] = useState();
+  const [post, setPost] = useState([]);
   const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const App = () => {
     e.preventDefault();
     const id = post.length ? post[post.length - 1] + 1 : 1;
     const dateTime = format(new Date(), "MMMM dd, yyyy pp") //format of date and time
-    const newPost = {id, title:title, dateTime, body:body};
+    const newPost = { id, title: title, dateTime, body: body };
     const allPosts = [...post, newPost];
     setPost(allPosts);
     setTitle('');
@@ -41,11 +42,33 @@ const App = () => {
 
   useEffect(() => {
     const filteredResults = post.filter(posts => (
-       ((posts.title.toLowerCase()).includes(search.toLowerCase()))
+      ((posts.title.toLowerCase()).includes(search.toLowerCase()))
     ))
 
     setSearchResults(filteredResults.reverse()); //reverses the elements of array
   }, [post, search]);
+
+  //Using AXIOS API Requests
+  useEffect(() => {
+    const fetchResultsAXIOS = async () => {
+      try {
+        const data_2 = await API_Axios.get('/posts'); //object name in data.json
+        setPost(data_2.data);
+      } catch (error) {
+        if (error.message) {
+          console.log(error.data_2.status);
+          console.log(error.data_2.data);
+          console.log(error.data_2.headers);
+        }
+        else{
+          //It could not catch the error
+          //Eg. 404 Error
+          console.log(`Error : ${error.message}`);
+        }
+      }
+    }
+    fetchResultsAXIOS();
+  }, [])
 
 
   return (
