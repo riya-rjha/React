@@ -22,10 +22,16 @@ const App = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
-  const handleDelete = (id) => {
-    const postLists = post.filter(posts => posts.id !== id);
-    setPost(postLists);
-    navigate('/');//Navigate to home page -> history.push() - V5
+  const handleDelete = async (id) => {
+    try {
+      const data = await API_Axios.delete(`/posts/${id}`);
+      const postLists = post.filter(posts => posts.id !== id);
+      setPost(postLists);
+      navigate('/');//Navigate to home page -> history.push() - V5
+    }
+    catch(error){
+      console.log(`Error : ${error.message}`);
+    }
   }
 
   const handleSubmit = async (e) => {
@@ -41,10 +47,12 @@ const App = () => {
       setBody('');
       navigate('/');
     }
-    catch(error){
+    catch (error) {
       console.log(`Error : ${error.message}`);
     }
   }
+
+
 
   useEffect(() => {
     const filteredResults = post.filter(posts => (
