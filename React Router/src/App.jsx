@@ -37,9 +37,31 @@ const App = () => {
     }
   }
 
+
+
+  const handleEdit = async (id) => {
+    const dateTime = format(new Date(), "MMMM dd, yyyy pp") //format of date and time
+    const updatedPost = { id, title: editTitle, dateTime, body: editBody };
+    try {
+      const response = await API_Axios.put(`/posts/${id}`, updatedPost);
+      setPost(post.map(post =>
+        (post.id === id) ? { ...response.data } : post
+      ));
+      setEditBody('');
+      setEditTitle('');
+      navigate('/');
+
+    } catch (error) {
+      console.log(`Error : ${error.message}`);
+    }
+  }
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const id = post.length ? post[post.length - 1] + 1 : 1;
+    // const id = post.length ? post[post.length - 1] + 1 : 1;
+    const lastPost = post.length ? post[post.length - 1] : { id: 0 };
+    const id = lastPost.id + 1;
     const dateTime = format(new Date(), "MMMM dd, yyyy pp") //format of date and time
     const newPost = { id, title: title, dateTime, body: body };
     try {
@@ -52,23 +74,8 @@ const App = () => {
     }
     catch (error) {
       console.log(`Error : ${error.message}`);
-    }
-  }
-
-  const handleEdit = async (id) => {
-    const dateTime = format(new Date(), "MMMM dd, yyyy pp") //format of date and time
-    const updatedPost = { id, title: title, dateTime, body: body };
-    try {
-      const response = await API_Axios.put(`/posts/${id}`, updatedPost);
-      setPost(post.map(post => 
-        (post.id === id) ? { ...response.data } : post
-      ));
-      setEditBody('');
-      setEditTitle('');
-      navigate('/');
-
-    } catch (error) {
-      console.log(`Error : ${error.message}`);
+      console.log('Data:', error.response.data);
+      console.log('Headers:', error.response.headers);
     }
   }
 

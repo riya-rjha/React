@@ -15,7 +15,8 @@ const EditPostPage = ({ post, handleEdit, editTitle, setEditTitle, editBody, set
         <main className='NewPost'>
             {editTitle &&
                 <>
-                    <h1>Edit Post</h1><form onSubmit={(e) => e.preventDefault()} className="newPostForm">
+                    <h1>Edit Post</h1>
+                    <form onSubmit={(e) => e.preventDefault()} className="newPostForm">
                         <label htmlFor="postTitle" className="postTitle">Title : </label>
                         <input
                             id='postTitle'
@@ -30,7 +31,8 @@ const EditPostPage = ({ post, handleEdit, editTitle, setEditTitle, editBody, set
                             required
                             placeholder='Enter content'
                             value={editBody}
-                            onChange={(e) => setEditBody(e.target.value)} />
+                            onChange={(e) => setEditBody(e.target.value)}
+                        />
                         <button onClick={() => handleEdit(posts.id)}>Submit</button>
                     </form>
                 </>

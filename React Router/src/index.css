@@ -220,7 +220,7 @@ form.newPostForm {
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
-  height: 55%;
+  height: 85%;
 }
 
 input,
@@ -246,8 +246,13 @@ input[type='text'] {
 textarea {
   font-family: cursive;
   letter-spacing: 1px;
-  /* overflow: hidden; */
+  /* Remove the fixed height */
+  /* height: 300px; */
+  overflow: none;
+  width: 100%;
+  resize: vertical;
 }
+
 
 label {
   color: rebeccapurple;
@@ -280,6 +285,6 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.819);
 }
 
-main.NewPost{
+main.NewPost {
   overflow: hidden;
 }

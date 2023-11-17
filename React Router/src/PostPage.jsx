@@ -16,7 +16,7 @@ const PostPage = ({ post, handleDelete }) => {
             <h2>{posts.title}</h2>
             <p className='postDate'>{posts.datetime}</p>
             <p className="postBody">{posts.body}</p>
-            <Link to={`/edit/${post.id}`}>
+            <Link to={`/edit/${posts.id}`}>
               <FaEdit className="icon" />
             </Link>
             <AiOutlineDelete
