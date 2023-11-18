@@ -38,3 +38,12 @@ Vite is a frontend tool that is fast unlike the old CRE. Use vite for activated 
 2. ReactJS Icons : https://react-icons.github.io/react-icons/
 3. React npm Packages : https://www.npmjs.com/
 4. Reacr Hooks : https://nikgraf.github.io/react-hooks/
+
+## Version 6 API Axios Commands
+1. import {Switch} from 'react-router-dom' : import {Routes} from 'react-router-dom'
+2. import {useHistory} from 'react-router-dom : import {useNavigate} from 'react=router-dom'
+3. history.push('/') : navigate('/'); {const navigate = useNavigate()}
+4. In main.jsx File : <Routes>
+                           <Route path="*" element={<App />} />
+                           {/* Component = {Element} - element = {Component} */}
+                      </Routes>
