@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Roboto Slab', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  background-color: #efefef;
+  font-size: 18px;
+}
+
+#root {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  width: 100%;
+  max-width: 800px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #333;
+  box-shadow: 0px 0px 15px gray;
+}
+
+main {
+  padding: 6px 8px;
+  text-align: left;
+}
+
+.Header,
+.Footer {
+  width: 100%;
+  background-color: #00ccff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header h1 {
+  font-size: 1.5rem;
+}
+
+.Header svg {
+  font-size: 2rem;
+}
+
+.Footer {
+  padding: 0.75rem;
+  display: grid;
+  place-content: center;
+}
+
+.Nav {
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.searchForm {
+  width: 80%;
+  padding: 1rem 0 0 0.75rem;
+}
+
+.searchForm input[type="text"] {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+.icon {
+  font-size: 55px;
+  color: rgb(56, 93, 0);
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: red;
+}
+
+.searchForm label {
+  position: absolute;
+  left: -99999px;
+}
+
+.Nav ul {
+  color: #fff;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.Nav li {
+  padding: 1rem;
+}
+
+.Nav li:hover,
+.Nav li:focus {
+  padding: 1rem;
+}
+
+.Nav li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.Missing h2,
+.PostPage h2,
+.Missing p,
+.PostPage p {
+  margin-bottom: 1rem;
+}
+
+.PostPage button {
+  height: 48px;
+  min-width: 48px;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: red;
+  color: #fff;
+  cursor: pointer;
+}
+
+.statusMsg {
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width: 610px) {
+  html {
+    font-size: 22px;
+  }
+
+  .Header h1 {
+    font-size: 2rem;
+  }
+
+  .Nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Nav ul {
+    text-align: right;
+  }
+
+  .Nav li:hover,
+  .Nav li:focus,
+  .Nav li:hover a,
+  .Nav li:focus a {
+    background-color: #eee;
+    color: #333;
+  }
+
+  .searchForm {
+    width: 50%;
+    padding: .5rem 0;
+  }
+
+  .searchForm input[type="text"] {
+    margin-left: 0.5rem;
+  }
+
+  .newPostForm textarea {
+    height: 300px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+
+  .Header svg {
+    font-size: 3rem;
+  }
+
+}
+
+footer {
+  position: sticky;
+  bottom: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+  letter-spacing: 0.6px;
+}
+
+article.post {
+  border-bottom: 1px solid black;
+  margin-top: 8px;
+}
+
+form.newPostForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  height: 85%;
+}
+
+input,
+textarea {
+  border: 0;
+  outline: none;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+main {
+  overflow: auto;
+}
+
+input[type='text'] {
+  font-family: cursive;
+  letter-spacing: 1px;
+  width: 148%;
+}
+
+textarea {
+  font-family: cursive;
+  letter-spacing: 1px;
+  /* Remove the fixed height */
+  /* height: 300px; */
+  overflow: none;
+  width: 100%;
+  resize: vertical;
+}
+
+
+label {
+  color: rebeccapurple;
+  font-weight: bolder;
+  margin-top: 5px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+::placeholder {
+  font-weight: bold;
+  color: rgba(128, 128, 128, 0.674);
+}
+
+button {
+  text-align: center;
+  border: 0;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 8px;
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 80px;
+  cursor: pointer;
+  font-family: 'Roboto Slab';
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.819);
+}
+
+main.NewPost {
+  overflow: hidden;
+}
