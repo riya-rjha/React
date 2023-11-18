@@ -13,6 +13,7 @@ import Footer from "./Footer";
 import { format } from 'date-fns';
 import API_Axios from './API/post.jsx'
 import EditPostPage from './EditPostPage.jsx';
+import UseWindowSize from './Hooks/useWindowSize.jsx';
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
   const [body, setBody] = useState('');
   const [editTitle, setEditTitle] = useState('');
   const [editBody, setEditBody] = useState('');
+  const { width } = UseWindowSize();
 
   const handleDelete = async (id) => {
     try {
@@ -36,7 +38,6 @@ const App = () => {
       console.log(`Error : ${error.message}`);
     }
   }
-
 
 
   const handleEdit = async (id) => {
@@ -81,6 +82,7 @@ const App = () => {
     }
   }
 
+
   useEffect(() => {
     const filteredResults = post.filter(posts => (
       ((posts.title.toLowerCase()).includes(search.toLowerCase()))
@@ -88,6 +90,7 @@ const App = () => {
 
     setSearchResults(filteredResults.reverse()); //reverses the elements of array
   }, [post, search]);
+
 
   //Using AXIOS API Requests
   useEffect(() => {
@@ -114,7 +117,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header title={"React JS Blog"} />
+      <Header
+        title={"React JS Blog"}
+        width={width}
+      />
       <Nav
         search={search}
         setSearch={setSearch}

@@ -208,11 +208,14 @@ footer {
   font-size: 20px;
   font-weight: bolder;
   letter-spacing: 0.6px;
+  border-top: 1px solid black;
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
 }
 
 article.post {
-  border-bottom: 1px solid black;
-  margin-top: 8px;
+  margin-top: 15px;
 }
 
 form.newPostForm {
