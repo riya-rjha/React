@@ -14,6 +14,7 @@ import { format } from 'date-fns';
 import API_Axios from './API/post.jsx'
 import EditPostPage from './EditPostPage.jsx';
 import UseWindowSize from './Hooks/useWindowSize.jsx';
+import UseAxiosFetch from './Hooks/useAxiosFetch.jsx'
 
 const App = () => {
 
@@ -93,26 +94,10 @@ const App = () => {
 
 
   //Using AXIOS API Requests
+  const { data, isLoading, fetchError } = UseAxiosFetch('http://localhost:3500/posts');
   useEffect(() => {
-    const fetchResultsAXIOS = async () => {
-      try {
-        const data_2 = await API_Axios.get('/posts'); //object name in data.json
-        setPost(data_2.data);
-      } catch (error) {
-        if (error.message) {
-          console.log(error.data_2.status);
-          console.log(error.data_2.data);
-          console.log(error.data_2.headers);
-        }
-        else {
-          //It could not catch the error
-          //Eg. 404 Error
-          console.log(`Error : ${error.message}`);
-        }
-      }
-    }
-    fetchResultsAXIOS();
-  }, [])
+    setPost(data);
+  }, [data])
 
 
   return (
@@ -129,6 +114,8 @@ const App = () => {
         <Route path="/" element={
           <Home
             post={searchResults}
+            isLoading={isLoading}
+            fetchError={fetchError}
           />
         }>
         </Route>
