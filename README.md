@@ -37,7 +37,8 @@ Vite is a frontend tool that is fast unlike the old CRE. Use vite for activated 
 1. Custom Hooks : https://legacy.reactjs.org/docs/hooks-custom.html
 2. ReactJS Icons : https://react-icons.github.io/react-icons/
 3. React npm Packages : https://www.npmjs.com/
-4. Reacr Hooks : https://nikgraf.github.io/react-hooks/
+4. React Hooks : https://nikgraf.github.io/react-hooks/
+5. React context API & useContext hook : https://legacy.reactjs.org/docs/context.html
 
 ## Version 6 API Axios Commands
 1. import {Switch} from 'react-router-dom' : import {Routes} from 'react-router-dom'
