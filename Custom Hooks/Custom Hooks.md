@@ -7,3 +7,5 @@ Traditionally, in ReactJS we have two methods to display : By rendering props an
 2. Call hooks from react function components.
 3. Call hooks from custom hooks.
 
+## Context API & useContext Hook
+Context helps in passing data without use of props manually down at every level. It uses a provider to pass the value down without explicitly threading it into fragments. It is useful when making bigger applications and we want to avoid passing of props at many level.s

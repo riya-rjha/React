@@ -14,7 +14,8 @@ import { format } from 'date-fns';
 import API_Axios from './API/post.jsx'
 import EditPostPage from './EditPostPage.jsx';
 import UseWindowSize from './Hooks/useWindowSize.jsx';
-import UseAxiosFetch from './Hooks/useAxiosFetch.jsx'
+import UseAxiosFetch from './Hooks/useAxiosFetch.jsx';
+import { DataProvider } from './Context/dataContext.jsx';
 
 const App = () => {
 
@@ -97,66 +98,68 @@ const App = () => {
   const { data, isLoading, fetchError } = UseAxiosFetch('http://localhost:3500/posts');
   useEffect(() => {
     setPost(data);
-  }, [data])
+  }, [data]);
 
 
   return (
     <div className="App">
-      <Header
-        title={"React JS Blog"}
-        width={width}
-      />
-      <Nav
-        search={search}
-        setSearch={setSearch}
-      />
-      <Routes>
-        <Route path="/" element={
-          <Home
-            post={searchResults}
-            isLoading={isLoading}
-            fetchError={fetchError}
-          />
-        }>
-        </Route>
-        <Route exact path="/post" element={
-          <NewPost
-            title={title}
-            setTitle={setTitle}
-            body={body}
-            setBody={setBody}
-            handleSubmit={handleSubmit}
-          />
-        }>
-        </Route>
-        <Route exact
-          path="/post/:id"
-          element={
-            <PostPage
-              post={post}
-              handleDelete={handleDelete}
+      <DataProvider>
+        <Header
+          title={"React JS Blog"}
+          width={width}
+        />
+        <Nav
+          search={search}
+          setSearch={setSearch}
+        />
+        <Routes>
+          <Route path="/" element={
+            <Home
+              post={searchResults}
+              isLoading={isLoading}
+              fetchError={fetchError}
             />
-          }
-        >
-        </Route>
-        <Route
-          path="/edit/:id"
-          element={
-            <EditPostPage
-              post={post}
-              handleEdit={handleEdit}
-              editTitle={editTitle}
-              setEditTitle={setEditTitle}
-              editBody={editBody}
-              setEditBody={setEditBody}
+          }>
+          </Route>
+          <Route exact path="/post" element={
+            <NewPost
+              title={title}
+              setTitle={setTitle}
+              body={body}
+              setBody={setBody}
+              handleSubmit={handleSubmit}
             />
-          }
-        >
-        </Route>
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<Missing />} />
-      </Routes>
-      <Footer />
+          }>
+          </Route>
+          <Route exact
+            path="/post/:id"
+            element={
+              <PostPage
+                post={post}
+                handleDelete={handleDelete}
+              />
+            }
+          >
+          </Route>
+          <Route
+            path="/edit/:id"
+            element={
+              <EditPostPage
+                post={post}
+                handleEdit={handleEdit}
+                editTitle={editTitle}
+                setEditTitle={setEditTitle}
+                editBody={editBody}
+                setEditBody={setEditBody}
+              />
+            }
+          >
+          </Route>
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Missing />} />
+        </Routes>
+        <Footer />
+      </DataProvider>
     </div >
   );
 }
