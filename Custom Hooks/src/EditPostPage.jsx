@@ -1,16 +1,43 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { useEffect } from 'react';
+import { useEffect, useContext, useState } from 'react';
+import DataContext from './Context/dataContext'
+import { format } from 'date-fns';
+import API_Axios from './API/post'
+import { useNavigate } from 'react-router-dom';
 
-const EditPostPage = ({ post, handleEdit, editTitle, setEditTitle, editBody, setEditBody }) => {
+const EditPostPage = () => {
+    const [editTitle, setEditTitle] = useState('');
+    const [editBody, setEditBody] = useState('');
+    const { post, setPost } = useContext(DataContext);
     const { id } = useParams(); //used to access dynamic url partner, eg. id (/Home/id)
     const posts = post.find(post => (post.id).toString() === id);
+    const navigate = useNavigate();
+
+    const handleEdit = async (id) => {
+        const dateTime = format(new Date(), "MMMM dd, yyyy pp") //format of date and time
+        console.log(dateTime);
+        const updatedPost = { id, title: editTitle, dateTime, body: editBody };
+        try {
+            const response = await API_Axios.put(`/posts/${id}`, updatedPost);
+            setPost(post.map(post =>
+                (post.id === id) ? { ...response.data } : post
+            ));
+            setEditBody('');
+            setEditTitle('');
+            navigate('/');
+
+        } catch (error) {
+            console.log(`Error : ${error.message}`);
+        }
+    }
+
     useEffect(() => {
         if (posts) {
             setEditBody(posts.body);
             setEditTitle(posts.title);
         }
-    }, [posts, setEditBody, setEditTitle])
+    }, [posts, setEditBody, setEditTitle]);
     return (
         <main className='NewPost'>
             {editTitle &&

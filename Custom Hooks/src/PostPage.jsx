@@ -2,11 +2,29 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { AiOutlineDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
+import { useContext } from 'react'
+import DataContext from './Context/dataContext'
+import API_Axios from './API/post'
+import { useNavigate } from 'react-router-dom'
 
-const PostPage = ({ post, handleDelete }) => {
+const PostPage = () => {
 
+  const { post, setPost } = useContext(DataContext);
   const { id } = useParams();
   const posts = post.find(post => (post.id).toString() === id);
+  const navigate = useNavigate();
+
+  const handleDelete = async (id) => {
+    try {
+      const data = await API_Axios.delete(`/posts/${id}`);
+      const postLists = post.filter(posts => posts.id !== id);
+      setPost(postLists);
+      navigate('/');//Navigate to home page -> history.push() - V5
+    }
+    catch (error) {
+      console.log(`Error : ${error.message}`);
+    }
+  }
 
   return (
     <main className='PostPage'>
