@@ -8,4 +8,7 @@ Traditionally, in ReactJS we have two methods to display : By rendering props an
 3. Call hooks from custom hooks.
 
 ## Context API & useContext Hook
-Context helps in passing data without use of props manually down at every level. It uses a provider to pass the value down without explicitly threading it into fragments. It is useful when making bigger applications and we want to avoid passing of props at many level.s
+Context helps in passing data without use of props manually down at every level. It uses a provider to pass the value down without explicitly threading it into fragments. It is useful when making bigger applications and we want to avoid passing of props at many level.
+
+## Easy Peasy Redux
+It is a library used for implementation of Redux that makes it easy peasy. It involves passing of components from one particulr store, as in larger applications the passage of props and states becomes difficult. Thus, we also use redux to sometimes pass components from children to parents and the vice versa always takes place.
