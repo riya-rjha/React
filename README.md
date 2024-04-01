@@ -45,11 +45,13 @@ Vite is a frontend tool that is fast unlike the old CRE. Use vite for activated 
 2. import {useHistory} from 'react-router-dom : import {useNavigate} from 'react=router-dom'
 3. history.push('/') : navigate('/'); {const navigate = useNavigate()}
 4. In main.jsx File :
-   
-                        <Routes>
+```
+<Routes>
 
-                           <Route path="*" element={<App />} />
-   
-                           {/* Component = {Element} - element = {Component} */}
-   
-                      </Routes>
+   <Route path="*" element={<App />} />
+
+   {/* Component = {Element} - element = {Component} */}
+
+</Routes>
+
+```

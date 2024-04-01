@@ -8,10 +8,10 @@ Traditionally, in ReactJS we have two methods to display : By rendering props an
 3. Call hooks from custom hooks.
 
 ## Context API & useContext Hook
-Context helps in passing data without use of props manually down at every level. It uses a provider to pass the value down without explicitly threading it into fragments. It is useful when making bigger applications and we want to avoid passing of props at many level.
+Context helps in passing data without use of props manually down at every level. It uses a provider to pass the value down without explicitly threading it into fragments. It is useful when making bigger applications and we want to avoid passing of props at many level. React Context API is the other word for Redux and to avoid the extensive dependency on prop drilling, we create a state provider that allows us to pass states anywhere within any file, by means of just accessing it from the top provider.
 
 ## Easy Peasy Redux
-It is a library used for implementation of Redux that makes it easy peasy. It involves passing of components from one particulr store, as in larger applications the passage of props and states becomes difficult. Thus, we also use redux to sometimes pass components from children to parents and the vice versa always takes place.
+It is a library used for implementation of Redux that makes it easy peasy. It involves passing of components from one particular store, as in larger applications the passage of props and states becomes difficult. Thus, we also use redux to sometimes pass components from children to parents and the vice versa always takes place.
 
 ## Deployment of React Applications
 There are two ways to deploy react applications : Netlify and gitHub pages. Following are the explanation of deployment of react apps in 10 points : 

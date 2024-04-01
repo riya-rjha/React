@@ -38,7 +38,6 @@ const App = () => {
   }
 
 
-
   const handleEdit = async (id) => {
     const dateTime = format(new Date(), "MMMM dd, yyyy pp") //format of date and time
     const updatedPost = { id, title: editTitle, dateTime, body: editBody };
@@ -49,7 +48,7 @@ const App = () => {
       ));
       setEditBody('');
       setEditTitle('');
-      navigate('/');
+      navigate('/')
 
     } catch (error) {
       console.log(`Error : ${error.message}`);
