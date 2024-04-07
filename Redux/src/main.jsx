@@ -4,11 +4,13 @@ import App from './App.jsx'
 import './App.css'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
-import users from './features/users.jsx'
+import userReducer from './features/users.jsx'
+import themeReducer from './features/theme.jsx'
 
 const store = configureStore({
   reducer: {
-    user: users
+    user: userReducer,
+    theme: themeReducer
   },
 })
 

@@ -5,20 +5,88 @@
 }
 
 .login-form {
+  margin-top: 65px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: #f8f9fa;
+  /* Light gray background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
 }
 
 .login-form input {
-  width: 90%;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  /* Gray border */
+  border-radius: 5px;
 }
 
-
-button {
+.login-form button {
+  width: 100%;
   margin-top: 20px;
-  width: 90%;
-  padding: 5px;
+  padding: 10px;
   font-size: 18px;
+  background-color: #007bff;
+  /* Blue button */
+  color: #fff;
+  /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+  /* Darker blue on hover */
+}
+
+.profile-form {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  /* Light gray background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+}
+
+.profile-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.profile-form input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ced4da;
+  /* Gray border */
+  border-radius: 5px;
+}
+
+.profile-form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #007bff;
+  /* Blue button */
+  color: #fff;
+  /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-form button:hover {
+  background-color: #0056b3;
+  /* Darker blue on hover */
 }
